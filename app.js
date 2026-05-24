@@ -351,8 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nav Toggles
     const navPortfolio = document.getElementById('nav-portfolio');
     const navSocial = document.getElementById('nav-social');
-    const viewPortfolio = document.getElementById('view-portfolio');
-    const viewSocial = document.getElementById('view-social');
+    const portfolioPage = document.getElementById('portfolio-page');
+    const discoverPage = document.getElementById('discover-page');
 
     // -- Stage 3: CSV & Social Feed Logic --
 
@@ -464,8 +464,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentProfileUnsubscribe = null;
     function openProfileView(uid, username, winrate, roi, email) {
-        if (viewSocial) viewSocial.classList.add('hidden');
-        if (viewPortfolio) viewPortfolio.classList.add('hidden');
+        if (discoverPage) discoverPage.classList.add('hidden');
+        if (portfolioPage) portfolioPage.classList.add('hidden');
         if (viewProfile) viewProfile.classList.remove('hidden');
         if (fabAdd) fabAdd.classList.add('hidden');
 
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnBackToFeed) {
         btnBackToFeed.addEventListener('click', () => {
             if (viewProfile) viewProfile.classList.add('hidden');
-            if (viewSocial) viewSocial.classList.remove('hidden');
+            if (discoverPage) discoverPage.classList.remove('hidden');
         });
     }
 
@@ -617,19 +617,19 @@ document.addEventListener('DOMContentLoaded', () => {
         navPortfolio.addEventListener('click', () => {
             navPortfolio.classList.add('active');
             navSocial.classList.remove('active');
-            viewPortfolio.classList.remove('hidden');
-            viewSocial.classList.add('hidden');
+            if (portfolioPage) portfolioPage.classList.remove('hidden');
+            if (discoverPage) discoverPage.classList.add('hidden');
             if (viewProfile) viewProfile.classList.add('hidden');
-            fabAdd.classList.remove('hidden');
+            if (fabAdd) fabAdd.classList.remove('hidden');
         });
 
         navSocial.addEventListener('click', () => {
             navSocial.classList.add('active');
             navPortfolio.classList.remove('active');
-            viewSocial.classList.remove('hidden');
-            viewPortfolio.classList.add('hidden');
+            if (discoverPage) discoverPage.classList.remove('hidden');
+            if (portfolioPage) portfolioPage.classList.add('hidden');
             if (viewProfile) viewProfile.classList.add('hidden');
-            fabAdd.classList.add('hidden');
+            if (fabAdd) fabAdd.classList.add('hidden');
         });
     }
 });
