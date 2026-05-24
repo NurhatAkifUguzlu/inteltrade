@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isLoginMode = true;
         tabLogin.classList.add('active');
         tabSignup.classList.remove('active');
-        authSubmitBtn.textContent = 'Log In';
+        authSubmitBtn.textContent = 'Giriş Yap';
         authError.classList.add('hidden');
     });
 
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isLoginMode = false;
         tabSignup.classList.add('active');
         tabLogin.classList.remove('active');
-        authSubmitBtn.textContent = 'Sign Up';
+        authSubmitBtn.textContent = 'Kayıt Ol';
         authError.classList.add('hidden');
     });
 
@@ -572,7 +572,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    const feedList = document.getElementById('feed-list');
     let currentFeedUnsubscribe = null;
     function loadSocialFeed() {
         if (!feedList) return;
