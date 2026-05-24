@@ -617,50 +617,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const btnPort = document.getElementById('btn-tab-portfolio');
-    const btnDisc = document.getElementById('btn-tab-discover');
-    const pagePort = document.getElementById('portfolio-page');
-    const pageDisc = document.getElementById('discover-page');
-
-    if (btnPort && btnDisc && pagePort && pageDisc) {
-        btnPort.addEventListener('click', () => {
-            pagePort.classList.remove('hidden');
-            pageDisc.classList.add('hidden');
-            btnPort.classList.add('active');
-            btnDisc.classList.remove('active');
+    if (btnTabPortfolio && btnTabDiscover && portfolioPage && discoverPage) {
+        btnTabPortfolio.addEventListener('click', () => {
+            portfolioPage.classList.remove('hidden');
+            discoverPage.classList.add('hidden');
+            btnTabPortfolio.classList.add('active');
+            btnTabDiscover.classList.remove('active');
             if (viewProfile) viewProfile.classList.add('hidden');
             if (fabAdd) fabAdd.classList.remove('hidden');
         });
 
-        btnDisc.addEventListener('click', () => {
-            pageDisc.classList.remove('hidden');
-            pagePort.classList.add('hidden');
-            btnDisc.classList.add('active');
-            btnPort.classList.remove('active');
+        btnTabDiscover.addEventListener('click', () => {
+            discoverPage.classList.remove('hidden');
+            portfolioPage.classList.add('hidden');
+            btnTabDiscover.classList.add('active');
+            btnTabPortfolio.classList.remove('active');
             if (viewProfile) viewProfile.classList.add('hidden');
             if (fabAdd) fabAdd.classList.add('hidden');
-        });
-    }
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const btnPort = document.getElementById('btn-tab-portfolio');
-    const btnDisc = document.getElementById('btn-tab-discover');
-    const pagePort = document.getElementById('portfolio-page');
-    const pageDisc = document.getElementById('discover-page');
-
-    if (btnPort && btnDisc && pagePort && pageDisc) {
-        btnPort.addEventListener('click', () => {
-            pagePort.classList.remove('hidden');
-            pageDisc.classList.add('hidden');
-            btnPort.classList.add('active');
-            btnDisc.classList.remove('active');
-        });
-
-        btnDisc.addEventListener('click', () => {
-            pageDisc.classList.remove('hidden');
-            pagePort.classList.add('hidden');
-            btnDisc.classList.add('active');
-            btnPort.classList.remove('active');
         });
     }
 });
