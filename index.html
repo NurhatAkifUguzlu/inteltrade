@@ -57,11 +57,11 @@
         </header>
 
         <nav class="app-nav">
-            <button class="nav-tab" id="nav-portfolio">Portföyüm</button>
-            <button class="nav-tab active" id="nav-social">Keşfet</button>
+            <button class="nav-tab" id="btn-tab-portfolio">Portföyüm</button>
+            <button class="nav-tab active" id="btn-tab-discover">Keşfet</button>
         </nav>
 
-        <main class="timeline-container hidden" id="portfolio-page">
+        <div class="timeline-container hidden" id="portfolio-page">
             <div class="personal-stats-card">
                 <div class="stats-header">
                     <div class="stats-title-block">
@@ -92,10 +92,10 @@
             <div id="portfolio-feed-list" style="margin-top: 3rem;">
                 <!-- Logged-in user posts will be injected here -->
             </div>
-        </main>
+        </div>
 
         <!-- Social Feed View -->
-        <main class="social-feed-container" id="discover-page">
+        <div class="social-feed-container" id="discover-page">
 
             <!-- Compose Post Box -->
             <div class="compose-post-card">
@@ -114,7 +114,7 @@
             <div id="social-feed-list">
                 <!-- Posts will be dynamically injected here -->
             </div>
-        </main>
+        </div>
 
         <!-- Dedicated Profile View -->
         <main class="social-feed-container hidden" id="view-profile">

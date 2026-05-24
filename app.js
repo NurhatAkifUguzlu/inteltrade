@@ -349,8 +349,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Nav Toggles
-    const navPortfolio = document.getElementById('nav-portfolio');
-    const navSocial = document.getElementById('nav-social');
+    const btnTabPortfolio = document.getElementById('btn-tab-portfolio');
+    const btnTabDiscover = document.getElementById('btn-tab-discover');
     const portfolioPage = document.getElementById('portfolio-page');
     const discoverPage = document.getElementById('discover-page');
 
@@ -613,19 +613,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (navPortfolio && navSocial) {
-        navPortfolio.addEventListener('click', () => {
-            navPortfolio.classList.add('active');
-            navSocial.classList.remove('active');
+    if (btnTabPortfolio && btnTabDiscover) {
+        btnTabPortfolio.addEventListener('click', () => {
+            btnTabPortfolio.classList.add('active');
+            btnTabDiscover.classList.remove('active');
             if (portfolioPage) portfolioPage.classList.remove('hidden');
             if (discoverPage) discoverPage.classList.add('hidden');
             if (viewProfile) viewProfile.classList.add('hidden');
             if (fabAdd) fabAdd.classList.remove('hidden');
         });
 
-        navSocial.addEventListener('click', () => {
-            navSocial.classList.add('active');
-            navPortfolio.classList.remove('active');
+        btnTabDiscover.addEventListener('click', () => {
+            btnTabDiscover.classList.add('active');
+            btnTabPortfolio.classList.remove('active');
             if (discoverPage) discoverPage.classList.remove('hidden');
             if (portfolioPage) portfolioPage.classList.add('hidden');
             if (viewProfile) viewProfile.classList.add('hidden');
