@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await fetchProfile();
             await fetchInvestments();
             loadSocialFeed();
+            loadPortfolioFeed();
         } else {
             currentUser = null;
             authView.classList.remove('hidden');
@@ -582,6 +583,25 @@ document.addEventListener('DOMContentLoaded', () => {
             feedList.innerHTML = '';
             snapshot.forEach((docSnap) => {
                 feedList.appendChild(createPostCard(docSnap.data(), docSnap.id, false));
+            });
+        });
+    }
+
+    let portfolioFeedUnsubscribe = null;
+    function loadPortfolioFeed() {
+        const portfolioFeedList = document.getElementById('portfolio-feed-list');
+        if (!portfolioFeedList || !currentUser) return;
+        if (portfolioFeedUnsubscribe) portfolioFeedUnsubscribe();
+
+        const q = query(collection(db, "posts"), where("uid", "==", currentUser.uid), orderBy("createdAt", "desc"));
+        portfolioFeedUnsubscribe = onSnapshot(q, (snapshot) => {
+            portfolioFeedList.innerHTML = '<h3 style="margin-bottom: 1.5rem; color: var(--text-primary); font-size: 1.25rem;">Geçmiş Gönderileriniz</h3>';
+            if (snapshot.empty) {
+                portfolioFeedList.innerHTML += '<div class="empty-state">Henüz gönderiniz yok. Keşfet sekmesinden bir şeyler paylaşın!</div>';
+                return;
+            }
+            snapshot.forEach((docSnap) => {
+                portfolioFeedList.appendChild(createPostCard(docSnap.data(), docSnap.id, true));
             });
         });
     }
