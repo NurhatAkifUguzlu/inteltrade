@@ -120,6 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPortfolioFeed();
         } else {
             currentUser = null;
+            if (currentFeedUnsubscribe) currentFeedUnsubscribe();
+            if (portfolioFeedUnsubscribe) portfolioFeedUnsubscribe();
+            if (currentProfileUnsubscribe) currentProfileUnsubscribe();
             authView.classList.remove('hidden');
             appView.classList.add('hidden');
             investments = [];
@@ -464,6 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentProfileUnsubscribe = null;
     function openProfileView(uid, username, winrate, roi, email) {
+        if (!currentUser) return;
         if (discoverPage) discoverPage.classList.add('hidden');
         if (portfolioPage) portfolioPage.classList.add('hidden');
         if (viewProfile) viewProfile.classList.remove('hidden');
@@ -575,7 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentFeedUnsubscribe = null;
     function loadSocialFeed() {
-        if (!feedList) return;
+        if (!feedList || !currentUser) return;
         if (currentFeedUnsubscribe) currentFeedUnsubscribe();
 
         const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
