@@ -61,58 +61,62 @@
             <button class="nav-tab active" id="btn-tab-discover">Keşfet</button>
         </nav>
 
-        <div class="timeline-container hidden" id="portfolio-page">
-            <div class="personal-stats-card">
-                <div class="stats-header">
-                    <div class="stats-title-block">
-                        <h3>İstatistiklerim</h3>
-                        <span class="profile-email" id="user-email">user@example.com</span>
+        <div id="portfolio-page" class="hidden">
+            <div class="timeline-container">
+                <div class="personal-stats-card">
+                    <div class="stats-header">
+                        <div class="stats-title-block">
+                            <h3>İstatistiklerim</h3>
+                            <span class="profile-email" id="user-email">user@example.com</span>
+                        </div>
+                        <div class="stats-upload-block">
+                            <label for="csv-upload" class="btn-action btn-upload">Geçmişi (CSV) Yükle</label>
+                            <input type="file" id="csv-upload" accept=".csv" style="display: none;">
+                        </div>
                     </div>
-                    <div class="stats-upload-block">
-                        <label for="csv-upload" class="btn-action btn-upload">Geçmişi (CSV) Yükle</label>
-                        <input type="file" id="csv-upload" accept=".csv" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Toplam Net</div>
+                            <div class="stat-value text-accent" id="net-worth-display">$0.00</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Kazanma Oranı</div>
+                            <div class="stat-value text-primary" id="win-rate-display">Yok</div>
+                        </div>
                     </div>
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-label">Toplam Net</div>
-                        <div class="stat-value text-accent" id="net-worth-display">$0.00</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">Kazanma Oranı</div>
-                        <div class="stat-value text-primary" id="win-rate-display">Yok</div>
-                    </div>
+
+                <div class="timeline" id="timeline">
+                    <!-- Timeline nodes will be injected here -->
                 </div>
-            </div>
 
-            <div class="timeline" id="timeline">
-                <!-- Timeline nodes will be injected here -->
-            </div>
-
-            <div id="portfolio-feed-list" style="margin-top: 3rem;">
-                <!-- Logged-in user posts will be injected here -->
+                <div id="portfolio-feed-list" style="margin-top: 3rem;">
+                    <!-- Logged-in user posts will be injected here -->
+                </div>
             </div>
         </div>
 
         <!-- Social Feed View -->
-        <div class="social-feed-container" id="discover-page">
+        <div id="discover-page">
+            <div class="social-feed-container">
 
-            <!-- Compose Post Box -->
-            <div class="compose-post-card">
-                <h3>Bir Güncelleme Paylaş</h3>
-                <form id="compose-post-form">
-                    <textarea id="post-content" placeholder="Piyasa görüşünüz nedir?" required></textarea>
-                    <input type="text" id="post-basket" placeholder="Paylaşılan Sepet (örn: Altın, TSLA)" required>
-                    <div class="compose-actions">
-                        <span class="metrics-preview">Mevcut Kazanma Oranınız ve ROI'niz eklenecektir.</span>
-                        <button type="submit" class="submit-btn btn-post">Paylaş</button>
-                    </div>
-                </form>
-            </div>
+                <!-- Compose Post Box -->
+                <div class="compose-post-card">
+                    <h3>Bir Güncelleme Paylaş</h3>
+                    <form id="compose-post-form">
+                        <textarea id="post-content" placeholder="Piyasa görüşünüz nedir?" required></textarea>
+                        <input type="text" id="post-basket" placeholder="Paylaşılan Sepet (örn: Altın, TSLA)" required>
+                        <div class="compose-actions">
+                            <span class="metrics-preview">Mevcut Kazanma Oranınız ve ROI'niz eklenecektir.</span>
+                            <button type="submit" class="submit-btn btn-post">Paylaş</button>
+                        </div>
+                    </form>
+                </div>
 
-            <!-- Feed Container -->
-            <div id="social-feed-list">
-                <!-- Posts will be dynamically injected here -->
+                <!-- Feed Container -->
+                <div id="social-feed-list">
+                    <!-- Posts will be dynamically injected here -->
+                </div>
             </div>
         </div>
 
